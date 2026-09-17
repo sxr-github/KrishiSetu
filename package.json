@@ -1,0 +1,43 @@
+{
+  "name": "krishisetu",
+  "private": true,
+  "version": "0.0.0",
+  "description": "KrishiSetu - AI-powered market-linkage and price-discovery platform for farmers (Phase 0 foundation).",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "apps/web",
+    "apps/mobile",
+    "backend",
+    "packages/types",
+    "packages/validation",
+    "packages/api-client",
+    "packages/constants"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -n backend,web -c blue,green \"npm run dev -w backend\" \"npm run dev -w @krishisetu/web\"",
+    "dev:backend": "npm run dev -w backend",
+    "dev:web": "npm run dev -w @krishisetu/web",
+    "dev:mobile": "npm run start -w @krishisetu/mobile",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0"
+  }
+}
